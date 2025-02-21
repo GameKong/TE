@@ -22,7 +22,7 @@ SpriteAtlas:
       sRGB: 1
     platformSettings:
     - serializedVersion: 4
-      m_BuildTarget: iOS
+      m_BuildTarget: iPhone
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
       m_TextureFormat: 49
