@@ -304,6 +304,7 @@ namespace TEngine
 
         private void ReleaseNode(LinkedListNode<T> node)
         {
+            // _linkedList.Remove(node);    // 先从链表移除节点 ★ 关键步骤
             node.Value = default(T);
             _cachedNodes.Enqueue(node);
         }
