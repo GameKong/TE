@@ -78,8 +78,9 @@ MonoBehaviour:
       componentName: AnimationCurve
     - uiElementRegex: m_canvasGroup
       componentName: CanvasGroup
+    - uiElementRegex: m_tmp
+      componentName: TextMeshProUGUI
   m_HybridCLRCustomGlobalSettings:
-    m_Enable: 1
     HotUpdateAssemblies:
     - GameBase.dll
     - GameProto.dll
