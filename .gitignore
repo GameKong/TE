@@ -3,8 +3,8 @@ UnityProject/UserSettings/Layouts/default-2021.dwlt
 UnityProject/UserSettings/Search.settings
 
 #Luban
-Tools/Luban/
-Tools/Luban.ClientServer/
+Tools/LubanSrc/
+# Tools/Luban.ClientServer/
 Configs/.cache.meta
 GenerateDatas/
 
