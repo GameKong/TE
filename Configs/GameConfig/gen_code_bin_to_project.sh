@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 添加 .NET SDK 到 PATH
+export PATH="$PATH:/usr/local/share/dotnet"
+
 cd "$(dirname "$0")"
 echo "当前目录: $(pwd)"
 

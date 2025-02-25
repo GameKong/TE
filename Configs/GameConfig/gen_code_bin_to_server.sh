@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 添加 .NET SDK 到 PATH
+export PATH="$PATH:/usr/local/share/dotnet"
+
 cd "$(dirname "$0")"
 echo "当前目录: $(pwd)"
 
@@ -17,5 +20,4 @@ dotnet "${LUBAN_DLL}" \
     -x outputCodeDir="${CODE_OUTPATH}" \
     -x outputDataDir="${DATA_OUTPATH}"
 
-echo "操作完成，按任意键退出..."
-read -k1
+echo "操作完成"
