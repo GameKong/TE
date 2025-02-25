@@ -21,5 +21,4 @@ dotnet "${LUBAN_DLL}" \
     -x outputCodeDir="${CODE_OUTPATH}" \
     -x outputDataDir="${DATA_OUTPATH}"
 
-echo "操作完成，按任意键退出..."
-read -k1
+echo "操作完成"
