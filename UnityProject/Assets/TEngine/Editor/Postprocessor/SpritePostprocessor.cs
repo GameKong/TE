@@ -241,7 +241,10 @@ public static class EditorSpriteSaveInfo
 
         var atlasPath = fullName.Substring(idx);
         string str = atlasPath;
+        Debug.Log("atlasPath : " + atlasPath);
+        Debug.Log("atlasPath : " + str.Substring(0, str.LastIndexOf("/", StringComparison.Ordinal)));
         str = str.Substring(0, str.LastIndexOf("/", StringComparison.Ordinal)).Replace("/", "_");
+        Debug.Log("atlasPath : " + str);
 
         return str;
     }

@@ -77,6 +77,7 @@ public class EntityEnemy : MonoBehaviour
 		var name = other.gameObject.name;
 		if (name.StartsWith("Boundary"))
 		{
+			Log.Info("Enemy out of boundary");
 			PoolManager.Instance.PushGameObject(this.gameObject);
 		}
 	}

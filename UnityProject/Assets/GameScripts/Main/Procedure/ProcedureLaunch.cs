@@ -1,4 +1,8 @@
-﻿using TEngine;
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using TEngine;
+using UnityEngine;
 using YooAsset;
 using ProcedureOwner = TEngine.IFsm<TEngine.IProcedureManager>;
 
@@ -14,7 +18,7 @@ namespace GameMain
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            
+
             //热更新UI初始化
             UILoadMgr.Initialize();
 
@@ -23,8 +27,64 @@ namespace GameMain
 
             // 声音配置：根据用户配置数据，设置即将使用的声音选项
             InitSoundSettings();
+        //     Log.Info(ScriptLocalization.name);
+        //     // 检查A类所属程序集
+        // Assembly assemblyA = typeof(ProcedureLaunch).Assembly;
+        // Debug.Log($"A类所在程序集: {assemblyA.GetName().Name}");
+
+        // // 获取B类的类型信息
+        // Type typeB = Type.GetType("ScriptLocalization, NewAssembly");
+        // if (typeB == null)
+        // {
+        //     Debug.LogError("无法加载B类类型");
+        //     return;
+        // }
+
+        // // 检查B类所属程序集
+        // Assembly assemblyB = typeB.Assembly;
+        // Debug.Log($"B类所在程序集: {assemblyB.GetName().Name}");
+
+        // // 检查B类对A类的可见性
+        // CheckVisibility(assemblyA, typeB);
         }
 
+        void CheckVisibility(Assembly assemblyA, Type typeB)
+    {
+        // 检查B类是否为public
+        bool isBPublic = typeB.IsPublic;
+        Debug.Log($"B类是否为public: {isBPublic}");
+
+        // 检查A的程序集是否引用了B的程序集
+        bool isReferenced = assemblyA.GetReferencedAssemblies()
+        .Any(a => a.FullName == typeB.Assembly.FullName);
+
+foreach (var a in assemblyA.GetReferencedAssemblies())
+{
+    Debug.Log($"引用的程序集: {a.FullName}");
+}
+
+        Debug.Log($"A的程序集是否引用B的程序集: {isReferenced}");
+
+        // 综合可见性判断
+        if (isBPublic && isReferenced)
+        {
+            Debug.Log("B类对A类可见 ✔️");
+            // 尝试实例化B类
+            try
+            {
+                object instance = Activator.CreateInstance(typeB);
+                Debug.Log("成功实例化B类对象");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"实例化失败: {e.Message}");
+            }
+        }
+        else
+        {
+            Debug.Log("B类对A类不可见 ❌");
+        }
+    }
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);

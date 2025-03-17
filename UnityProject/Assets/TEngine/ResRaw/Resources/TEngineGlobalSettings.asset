@@ -79,19 +79,8 @@ MonoBehaviour:
     - uiElementRegex: m_canvasGroup
       componentName: CanvasGroup
   m_BybridCLRCustomGlobalSettings:
-    m_Enable: 1
-    HotUpdateAssemblies:
-    - GameBase.dll
-    - GameProto.dll
-    - GameLogic.dll
-    AOTMetaAssemblies:
-    - mscorlib.dll
-    - System.dll
-    - System.Core.dll
-    - UnityEngine.CoreModule.dll
-    - YooAsset.dll
-    - UniTask.dll
-    - TEngine.Runtime.dll
+    HotUpdateAssemblies: []
+    AOTMetaAssemblies: []
     LogicMainDllName: GameLogic.dll
     AssemblyTextAssetExtension: .bytes
     AssemblyTextAssetPath: AssetRaw/DLL

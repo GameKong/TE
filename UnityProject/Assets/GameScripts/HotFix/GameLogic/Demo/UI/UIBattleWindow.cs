@@ -53,6 +53,9 @@ namespace GameLogic
         private async UniTaskVoid OnClickHomeBtn()
         {
             await UniTask.Yield();
+            await GameModule.Scene.LoadScene("scene_home").ToUniTask();
+            // GameModule.UI.ShowUIAsync<UIHome>();
+
             // yield return YooAssets.LoadSceneAsync("scene_home");	
             // yield return UniWindow.OpenWindowAsync<UIHomeWindow>("UIHome");
             //

@@ -89,22 +89,23 @@ namespace TEngine.Localization
             var sbTrans = new StringBuilder();
             var sbTerms = new StringBuilder();
             sbTrans.AppendLine( "using UnityEngine;" );
+			sbTrans.AppendLine( "using TEngine.Localization;" );
             sbTrans.AppendLine();
-            sbTrans.AppendLine( "namespace TEngine.Localization" );
+			// sbTrans.AppendLine( "namespace TEngine.Localization" );
+			// sbTrans.AppendLine( "{" );
+            sbTrans.AppendLine( "public static class ScriptLocalization" );
             sbTrans.AppendLine( "{" );
-            sbTrans.AppendLine( "	public static class ScriptLocalization" );
-            sbTrans.AppendLine( "	{" );
 
 
             sbTerms.AppendLine();
-            sbTerms.AppendLine("    public static class ScriptTerms");
-            sbTerms.AppendLine("	{");
+            sbTerms.AppendLine("public static class ScriptTerms");
+            sbTerms.AppendLine("{");
 
 
 
             BuildScriptWithSelectedTerms( sbTrans, sbTerms );
-            sbTrans.AppendLine("	}");    // Closing both classes
-            sbTerms.AppendLine("	}");
+            sbTrans.AppendLine("}");    // Closing both classes
+            // sbTerms.AppendLine("	}");
 
 
             string ScriptFile = GetPathToGeneratedScriptLocalization ();
@@ -164,8 +165,8 @@ namespace TEngine.Localization
 
 				if (Category != LanguageSourceData.EmptyCategory)
 				{
-                    sbTrans.AppendLine("		}");
-                    sbTerms.AppendLine("		}");
+                    sbTrans.AppendLine("}");
+                    sbTerms.AppendLine("}");
                 }
             }
 		}
@@ -191,15 +192,15 @@ namespace TEngine.Localization
 			{
                 for (int i = 0; i < Terms.Count; ++i)
                 {
-                    sbTrans.AppendLine( "		public static string " + AdjustedTerms[i] + " \t\t{ get{ return LocalizationManager.GetTranslation (\"" + Terms[i] + "\"); } }");
-                    sbTerms.AppendLine("		public const string " + AdjustedTerms[i] + " = \"" + Terms[i] + "\";");
+                    sbTrans.AppendLine("	public static string " + AdjustedTerms[i] + " \t\t{ get{ return LocalizationManager.GetTranslation (\"" + Terms[i] + "\"); } }");
+                    sbTerms.AppendLine("	public const string " + AdjustedTerms[i] + " = \"" + Terms[i] + "\";");
                 }
             }
 			else
 			for (int i=0; i<Terms.Count; ++i)
 			{
-				sbTrans.AppendLine("			public static string "+AdjustedTerms[i]+ " \t\t{ get{ return LocalizationManager.GetTranslation (\"" + Category+"/"+Terms[i]+"\"); } }");
-				sbTerms.AppendLine("		    public const string " + AdjustedTerms[i] + " = \"" + Category + "/" + Terms[i] + "\";");
+				sbTrans.AppendLine("		public static string "+AdjustedTerms[i]+ " \t\t{ get{ return LocalizationManager.GetTranslation (\"" + Category+"/"+Terms[i]+"\"); } }");
+				sbTerms.AppendLine("		public const string " + AdjustedTerms[i] + " = \"" + Category + "/" + Terms[i] + "\";");
 			}
 		}
 

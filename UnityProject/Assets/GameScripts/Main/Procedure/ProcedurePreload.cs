@@ -49,6 +49,7 @@ namespace GameMain
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
+            Log.Error("ProcedurePreload OnUpdate" + _loadedFlag.Count);
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
             var totalCount = _loadedFlag.Count <= 0 ? 1 : _loadedFlag.Count;
@@ -112,9 +113,15 @@ namespace GameMain
 
         private async UniTaskVoid PreloadResources()
         {
-            await SmoothValue(1f, 1.2f).ToUniTask(GameModule.Procedure);
+        Log.Error($"[阶段1]开始执行:" + _loadedFlag.Count);
+
+            await SmoothValue(1f, 0.01f).ToUniTask(GameModule.Procedure);
+        Log.Error($"[阶段2]SmoothValue完成"); 
+
+        // await UniTask.Delay(TimeSpan.FromSeconds(2.5f), cancellationToken: GameModule.Procedure.GetCancellationTokenOnDestroy());
 
             await UniTask.Delay(TimeSpan.FromSeconds(2.5f));
+        Log.Error($"[阶段3]Delay完成");
 
             if (_needProLoadConfig)
             {
@@ -144,6 +151,7 @@ namespace GameMain
 
         private void PreLoad(string location)
         {
+            Log.Error("ProcedurePreload PreLoad" + _loadedFlag.Count);
             _loadedFlag.Add(location, false);
             GameModule.Resource.LoadAssetAsync(location, typeof(UnityEngine.Object), m_PreLoadAssetCallbacks, null);
         }

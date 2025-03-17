@@ -11,7 +11,7 @@ using TEngine;
 public partial class GameApp:Singleton<GameApp>
 {
     private static List<Assembly> _hotfixAssembly;
-    
+
     /// <summary>
     /// 热更域App主入口。
     /// </summary>
@@ -21,6 +21,7 @@ public partial class GameApp:Singleton<GameApp>
         _hotfixAssembly = (List<Assembly>)objects[0];
         Log.Warning("======= 看到此条日志代表你成功运行了热更新代码 =======");
         Log.Warning("======= Entrance GameApp =======");
+
         Instance.Init();
         Instance.Start();
         Utility.Unity.AddUpdateListener(Instance.Update);
@@ -31,6 +32,8 @@ public partial class GameApp:Singleton<GameApp>
         Utility.Unity.AddOnApplicationPauseListener(Instance.OnApplicationPause);
         GameModule.Procedure.RestartProcedure(new GameLogic.OnEnterGameAppProcedure());
         Instance.StartGameLogic();
+        // Log.Info(ScriptLocalization.name);
+        
     }
 
     /// <summary>

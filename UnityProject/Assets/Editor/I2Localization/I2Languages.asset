@@ -16,24 +16,46 @@ MonoBehaviour:
     UserAgreesToHaveItOnTheScene: 0
     UserAgreesToHaveItInsideThePluginsFolder: 0
     GoogleLiveSyncIsUptoDate: 1
-    mTerms: []
+    mTerms:
+    - Term: name
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u59D3\u540D5"
+      - name
+      Flags: 0000
+      Languages_Touch: []
+    - Term: name2
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u540D\u5B572"
+      - name888
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
-    mLanguages: []
+    mLanguages:
+    - Name: Chinese
+      Code: zh
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
     IgnoreDeviceLanguage: 0
     _AllowUnloadingLanguages: 0
-    Google_WebServiceURL: 
-    Google_SpreadsheetKey: 
-    Google_SpreadsheetName: 
-    Google_LastUpdatedVersion: 
-    Google_Password: change_this
+    Google_WebServiceURL: https://script.google.com/macros/s/AKfycbzcaQ0HBN-yNNSu_6EYbm7WxhDOSp7J40yyEdRNZIFHFN0DeAaSf0DG1ND77KA8TmQI/exec
+    Google_SpreadsheetKey: 1Sp-1GT27MVHSBArrT7-D0GjaGy2X0DzT16TuRcSWSpI
+    Google_SpreadsheetName: I2Loc TEngine Localization
+    Google_LastUpdatedVersion: 1741587768628
+    Google_Password: lq181004
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2
     GoogleUpdateSynchronization: 1
     GoogleUpdateDelay: 0
     Assets: []
-    Spreadsheet_LocalFileName: 
+    Spreadsheet_LocalFileName: /Users/kongling/project/AF/UnityProject/Assets/AssetRaw/I18n/Localization.csv
     Spreadsheet_LocalCSVSeparator: ','
     Spreadsheet_LocalCSVEncoding: utf-8
     Spreadsheet_SpecializationAsRows: 1
